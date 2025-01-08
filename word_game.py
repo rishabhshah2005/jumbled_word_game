@@ -68,7 +68,7 @@ while True:
     jumbled = jumble_word(rand_word)
 
     print(jumbled)
-    for i in range(3):
+    for i in range(TRIES):
         ans = input("Enter your answer: ")
         if ans==rand_word:
             print("Correct!")
