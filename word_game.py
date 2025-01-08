@@ -36,13 +36,15 @@ def select_difficulty():
             print("Select correct index!!")
     
 
-def check_correctness(word, ans):
+def check_correctness(ans, word):
     res = ""
-    for i in range(len(word)):
+    rng = len(word) if len(ans)>len(word) else len(ans)
+    for i in range(rng):
         if word[i]==ans[i]:
-            res+=word[i]
+            res+=ans[i]
         else:
             res+="_"
+    res += (len(word)-len(ans))*"_"
 
     return res
 
@@ -74,9 +76,10 @@ while True:
         else:
             print(check_correctness(ans, rand_word))
     else:
+        print("The answer was", rand_word)
         print("Game Over!")
     
-    again = input("Do you want to play again??(y/n)")
+    again = input("Do you want to play again??(y/n): ")
     if again =="y":
         continue
     else:
